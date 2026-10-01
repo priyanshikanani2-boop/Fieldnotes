@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="Fieldnotes is a small corner of the internet for stories worth sitting with.">
+  <title>Fieldnotes — Stories worth sitting with</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Fieldnotes home">fieldnotes<span>.</span></a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a class="nav-link is-active" href="#stories">Stories</a>
+      <a class="nav-link" href="#popular">Popular</a>
+      <a class="nav-link" href="#newsletter">Newsletter</a>
+    </nav>
+    <div class="header-actions">
+      <label class="search-box" for="story-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 4.5 4.5"></path></svg>
+        <input id="story-search" type="search" placeholder="Find a story" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <button class="write-button" id="open-compose" type="button"><span aria-hidden="true">+</span> Write a story</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro-band" aria-labelledby="site-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="live-dot"></span> A journal for the curious</p>
+        <h1 id="site-title">Stories worth<br> <em>sitting with.</em></h1>
+        <p class="intro-description">Ideas, places, and little things that make a life.</p>
+      </div>
+      <div class="issue-note" aria-label="Current issue">
+        <span class="issue-mark">No. 08</span>
+        <span class="issue-divider"></span>
+        <span>THE SLOW<br>ISSUE</span>
+        <span class="issue-date">September 2026</span>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <span class="art-sun"></span>
+        <span class="art-hill art-hill-back"></span>
+        <span class="art-hill art-hill-front"></span>
+        <span class="art-caption">TAKE THE LONG WAY</span>
+      </div>
+    </section>
+
+    <section class="featured" aria-label="Featured story">
+      <button class="feature-image" id="feature-open" type="button" aria-label="Read the featured story, The quiet art of beginning again">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" alt="Sunlight falling across a quiet woodland path">
+        <span class="image-index">FIELDNOTE&nbsp; 001</span>
+      </button>
+      <div class="feature-copy">
+        <p class="eyebrow">Editor's letter <span class="feature-rule"></span> 6 min read</p>
+        <h2 id="feature-title">The quiet art of beginning again</h2>
+        <p class="feature-summary">On small resets, open windows, and the particular courage it takes to start where you are.</p>
+        <div class="byline">
+          <span class="avatar avatar-green">ML</span>
+          <span><strong>Mara Lewis</strong><small>September 18, 2026</small></span>
+          <button class="text-button" id="feature-read" type="button">Read the story <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+      <div class="feature-stamp" aria-hidden="true">01</div>
+    </section>
+
+    <div class="content-layout">
+      <section class="story-section" id="stories" aria-labelledby="stories-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Fresh from the notebook</p>
+            <h2 id="stories-title">The latest <span>stories</span></h2>
+          </div>
+          <button class="saved-toggle" id="saved-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> <span>Saved</span> <span class="saved-count" id="saved-count">0</span></button>
+        </div>
+
+        <div class="category-list" role="group" aria-label="Filter stories by category">
+          <button class="category-chip is-selected" type="button" data-category="All" aria-pressed="true">All stories</button>
+          <button class="category-chip" type="button" data-category="Life" aria-pressed="false">Life</button>
+          <button class="category-chip" type="button" data-category="Places" aria-pressed="false">Places</button>
+          <button class="category-chip" type="button" data-category="Culture" aria-pressed="false">Culture</button>
+          <button class="category-chip" type="button" data-category="Ideas" aria-pressed="false">Ideas</button>
+        </div>
+        <p class="result-note" id="result-note" aria-live="polite"></p>
+        <div class="story-grid" id="story-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-flower" aria-hidden="true">✳</span>
+          <h3>No stories found just yet.</h3>
+          <p>Try another search, or choose a different shelf.</p>
+          <button class="text-button" id="clear-filters" type="button">Clear filters <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <aside class="right-rail">
+        <section class="popular-section" id="popular" aria-labelledby="popular-title">
+          <div class="rail-heading"><p class="eyebrow">A little extra love</p><h2 id="popular-title">Most read</h2></div>
+          <ol class="popular-list" id="popular-list"></ol>
+        </section>
+
+        <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+          <div class="newsletter-scribble" aria-hidden="true">a note<br>for later <span>↘</span></div>
+          <p class="eyebrow">The Sunday letter</p>
+          <h2 id="newsletter-title">A good read,<br>once a week.</h2>
+          <p class="newsletter-description">Our favorite stories and small discoveries, delivered without the noise.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <label class="sr-only" for="newsletter-email">Your email address</label>
+            <input id="newsletter-email" name="email" type="email" placeholder="Your email address" required>
+            <button type="submit" aria-label="Subscribe to the Sunday letter">↗</button>
+          </form>
+          <p class="newsletter-message" id="newsletter-message" aria-live="polite">No spam. Unsubscribe whenever.</p>
+        </section>
+
+        <footer class="rail-footer"><span>© Fieldnotes 2026</span><a href="#top">Back to the top ↑</a></footer>
+      </aside>
+    </div>
+  </main>
+
+  <dialog class="story-dialog" id="story-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Close story">×</button>
+    <div id="dialog-story-content"></div>
+  </dialog>
+
+  <dialog class="compose-dialog" id="compose-dialog" aria-labelledby="compose-title">
+    <form class="compose-form" id="compose-form">
+      <div class="dialog-topline"><p class="eyebrow">Something on your mind?</p><button class="dialog-close" type="button" data-close-dialog aria-label="Close form">×</button></div>
+      <h2 id="compose-title">Write a story<span>.</span></h2>
+      <label for="post-title">Title</label>
+      <input id="post-title" name="title" type="text" maxlength="90" placeholder="Give your story a name" required>
+      <div class="form-row">
+        <div><label for="post-author">Byline</label><input id="post-author" name="author" type="text" maxlength="40" placeholder="Your name" required></div>
+        <div><label for="post-category">Shelf</label><select id="post-category" name="category"><option>Life</option><option>Places</option><option>Culture</option><option>Ideas</option></select></div>
+      </div>
+      <label for="post-summary">A short introduction</label>
+      <textarea id="post-summary" name="summary" rows="2" maxlength="180" placeholder="What is this story about?" required></textarea>
+      <label for="post-body">Your story</label>
+      <textarea id="post-body" name="body" rows="7" placeholder="Begin anywhere..." required></textarea>
+      <label for="post-image">Image URL <span class="optional-label">optional</span></label>
+      <input id="post-image" name="image" type="url" placeholder="https://...">
+      <div class="compose-footer"><span>Your stories stay on this device.</span><button class="write-button" type="submit">Publish story <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
